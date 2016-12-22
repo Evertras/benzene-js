@@ -1,3 +1,9 @@
 document.body.appendChild(Benzene.renderer.view);
 
-Benzene.render();
+function loop() {
+  requestAnimationFrame(loop);
+
+  Benzene.render();
+}
+
+loop();
