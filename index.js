@@ -1,6 +1,6 @@
 const pixi = require('pixi.js');
 
-const HexStage = require('./lib/hexStage.js');
+const HexStage = require('./lib/draw/hexStage.js');
 
 console.log('Loaded benzene');
 
