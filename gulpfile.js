@@ -16,7 +16,7 @@ const opts = assign({}, watchify.args, {
 });
 const b = watchify(browserify(opts));
 
-gulp.task('js', bundle);
+gulp.task('default', bundle);
 b.on('update', bundle);
 b.on('log', gutil.log);
 
