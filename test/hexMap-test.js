@@ -14,13 +14,13 @@ describe('HexMap', () => {
 
   it('starts with the correct tile coordinates', () => {
     const width = 3;
-    const height = 3;
+    const height = 4;
 
     const map = new HexMap(width, height);
 
     expect(map.tiles).to.have.all.keys(['0','1','2']);
-    expect(map.tiles[0]).to.have.all.keys(['0','1','2']);
-    expect(map.tiles[1]).to.have.all.keys(['0','1','2']);
-    expect(map.tiles[2]).to.have.all.keys(['-1','0','1']);
+    expect(map.tiles[0]).to.have.all.keys(['0','1','2', '3']);
+    expect(map.tiles[1]).to.have.all.keys(['0','1','2', '3']);
+    expect(map.tiles[2]).to.have.all.keys(['-1','0','1', '2']);
   });
 });

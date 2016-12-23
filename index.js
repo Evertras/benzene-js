@@ -7,7 +7,7 @@ console.log('Loaded benzene');
 class Benzene {
   constructor() {
     this.renderer = new pixi.autoDetectRenderer(800, 600);
-    this.hexStage = new HexStage();
+    this.hexStage = new HexStage(50);
   }
 
   render() {
