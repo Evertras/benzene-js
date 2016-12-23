@@ -12,7 +12,7 @@ describe('HexMap', () => {
     expect(map.height).to.equal(height);
   });
 
-  it('starts with the correct number of blank tiles', () => {
+  it('starts with the correct tile coordinates', () => {
     const width = 3;
     const height = 3;
 
