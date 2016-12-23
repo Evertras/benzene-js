@@ -5,8 +5,10 @@ const watchify = require('watchify');
 const source = require('vinyl-source-stream');
 const gutil = require('gulp-util');
 const assign = require('lodash.assign');
+const mocha = require('gulp-mocha');
+const istanbul = require('gulp-istanbul');
 
-const src = [ 'index.js', './lib/*.js' ];
+const src = [ 'index.js', './lib/**/*.js' ];
 const bundleTarget = 'benzene.js';
 
 const opts = assign({}, watchify.args, {
@@ -30,4 +32,16 @@ gulp.task('jshint', () => {
              .pipe(jshint())
              .pipe(jshint.reporter('default'))
              .pipe(jshint.reporter('fail'))
+});
+
+gulp.task('pre-test', () => {
+  return gulp.src(src)
+    .pipe(istanbul())
+    .pipe(istanbul.hookRequire());
+})
+
+gulp.task('test', ['pre-test'], () => {
+  return gulp.src(['test/**/*.js'])
+    .pipe(mocha())
+    .pipe(istanbul.writeReports());
 });
